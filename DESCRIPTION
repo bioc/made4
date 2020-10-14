@@ -1,5 +1,5 @@
 Package: made4
-Version: 1.63.1
+Version: 1.64
 Title: Multivariate analysis of microarray data using ADE4
 Author: Aedin Culhane
 Maintainer: Aedin Culhane <Aedin@jimmy.harvard.edu>
@@ -18,6 +18,7 @@ Reference: Culhane AC, Thioulouse J, Perriere G, Higgins DG. (2005)
         Bioconductor December.
 License: Artistic-2.0
 VignetteBuilder: knitr
+LazyData: TRUE
 URL: http://www.hsph.harvard.edu/aedin-culhane/
-biocViews: Clustering, Classification, MultipleComparison
+biocViews: Clustering, Classification, DimensionReduction, PrincipalComponent,Transcriptomics, MultipleComparison  
 PackageStatus: Deprecated
