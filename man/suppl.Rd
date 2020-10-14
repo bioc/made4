@@ -35,7 +35,7 @@ a test dataset can be then projected onto \code{bga} axes using \code{\link[made
  
 The test dataset must contain the same number of variables (genes) as the training dataset. 
 The input format of both the training dataset and test dataset are verified using
-\code{array2ade4}. Use \code{\link[made4:plot.bga]{plot.bga}} to plot results from bga.  
+\code{isDataFrame}. Use \code{\link[made4:plot.bga]{plot.bga}} to plot results from bga.  
 }
 \value{
   A list containing:

@@ -11,8 +11,8 @@ function(df1, df2, cia.nf=2, cia.scan=FALSE, nsc=TRUE, ...){
         if(nsc){
           # Coinertia analysis using non symmetric COA
  
-          df1<-array2ade4(df1, pos=TRUE, trans=FALSE)
-          df2<-array2ade4(df2, pos=TRUE, trans=FALSE)
+          df1<-isDataFrame(df1, pos=TRUE, trans=FALSE)
+          df2<-isDataFrame(df2, pos=TRUE, trans=FALSE)
 
           coa1<-t(dudi.nsc(df1, scannf=FALSE, nf=cia.nf))
           coa2<-t(dudi.nsc(df2, scannf=FALSE, nf=cia.nf))
@@ -21,8 +21,8 @@ function(df1, df2, cia.nf=2, cia.scan=FALSE, nsc=TRUE, ...){
         }
 
         if(!nsc){
-          df1<-array2ade4(df1, pos=TRUE)
-          df2<-array2ade4(df2, pos=TRUE)
+          df1<-isDataFrame(df1, pos=TRUE)
+          df2<-isDataFrame(df2, pos=TRUE)
         
           coa1 = dudi.coa(df1, scannf=FALSE, nf=cia.nf)
 	  coa2 = dudi.rwcoa(df2, rowweights=coa1$lw, scannf=FALSE, nf=cia.nf)

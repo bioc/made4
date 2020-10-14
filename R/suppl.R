@@ -53,7 +53,7 @@ function(dudi.bga, supdata,supvec=NULL, assign=TRUE, ...){
           posdudi=c("coa", "nsc")
           testpos<- (inherits(dudi.bga, posdudi))
           
-          data.tr<-array2ade4(supdata, pos=testpos, trans=TRUE, ...)
+          data.tr<-isDataFrame(supdata, pos=testpos, trans=TRUE, ...)
           if (!is.data.frame(data.tr)) stop("Problems transposing data")
 
          if (ncol(data.tr) != ncol(dudi.bga$ord$ord$tab)) 
@@ -204,8 +204,13 @@ function(dudi.bga, supdata,supvec=NULL, assign=TRUE, ...){
           # New version 
           # Format results for output  (Ian checked with Khan/Golub/florent's data)
           # Seems to work 4th Nov 2004
-            cc = levels(dudi.bga$fac)[closest.cent$closest.class]
-            pc = levels(dudi.bga$fac)[thres.res]
+          # Oct 2020. Thanks SamGG
+           # cc = levels(dudi.bga$fac)[closest.cent$closest.class]
+          #  pc = levels(dudi.bga$fac)[thres.res]
+            cc <- pc <- factor(seq(levels(dudi.bga$fac)), labels = levels(dudi.bga$fac))
+            cc <- cc[closest.cent$closest.class]
+            pc <- pc[thres.res]
+            
             out <- cbind(projected = suppl.res, closest.centre = cc,predicted = pc)
 
         }
@@ -219,7 +224,7 @@ function(dudi.bga, supdata,supvec=NULL, assign=TRUE, ...){
 	}
 
 
-plot.suppl<-function(x, dudi.bga, axis1=1, axis2=2, supvec=sup$true.class, supvec.pred= sup$predicted, ...){ 
+plot.suppl<-function(x, dudi.bga, axis1=1, axis2=2, supvec=x$true.class, supvec.pred= x$predicted, ...){ 
          par(mfrow=c(2,2))
          sup=x
          plotarrays(dudi.bga, sub="BGA of training data",  axis1=axis1, axis2=axis2, graph="simple",...)

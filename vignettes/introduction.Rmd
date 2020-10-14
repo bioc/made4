@@ -2,15 +2,16 @@
 title: "Introduction to Multivariate Analysis of Gene Expression Data using MADE4"
 author: 
 - name: "Aedin Culhane"
-  affiliation: Department of Data Sciences, Dana-Farber Cancer Institute, Department of Biostatistics, Harvard TH Chan School of Public Health
+  affiliation: Department of Data Science, Dana-Farber Cancer Institute, Department of Biostatistics, Harvard TH Chan School of Public Health
 output:
   BiocStyle::html_document:
     toc_float: true
   BiocStyle::pdf_document: default
+  extra_dependencies: ["bbm", "threeparttable"]
 package: BiocStyle
 bibliography: bibliography.bib
 abstract: |
-  Vignette introduction function in the made4 package. This package is old. If you would like to assist, in  updating it, please let me know. I'd be delighted.
+  Vignette introduction function in the made4 package. This package is old and was originally designed for the analysis of microarray data.  However most of the functions, such as bga, cia etc can be applied to any 'omics data. Some of these functions are avaialble in omicade4, mogsa and corral, and I am migrating this package into Bioconductor compliant package ;-)  If you have found functions in made4 useful, and would like to assist, in  updating it, please let me know. I'd be delighted.
 vignette: |
   %\VignetteIndexEntry{Authoring R Markdown vignettes}
   %\VignetteEngine{knitr::rmarkdown}
@@ -27,7 +28,7 @@ vignette: |
 
 
 
-#Introduction
+# Introduction
 
 
 ```{r}
@@ -45,7 +46,7 @@ functions that utilise and extend multivariate statistical and graphical functio
 - matrix
 and older microarray formats; ExpressionSet, marrayRaw
 
-#Installation
+# Installation
 
 *made4* requires the R package *ade4*.  It should be installed automatically when you install *made4*. To install *made4* from bioconductor
 
@@ -55,7 +56,7 @@ if (!requireNamespace("BiocManager", quietly=TRUE))
 BiocManager::install("made4")
 ```
 
-#Further help
+# Further help
 
 The package *made4* is described in more detail in the RNews newletter, December 2006.
 
@@ -70,16 +71,16 @@ is available through the ADE4 mailing list.
 This tutorial assumes a basic knowledge of R, but we have found that Emmanuel Paradis's *R for Beginners* is a 
 very good guide to those unfamiliar with R. This is [available at] (http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf).
 
-This documents assumes that data is normalised and preprocessed.
+This documents assumes that data is normalized and preprocessed.
 
 
-#Citing
+# Citing
 We are delighted if you use this package. Please do email us if you find a bug or have a suggestion.  We would be very grateful if you could cite:
 
 Culhane AC, Thioulouse J, Perriere G, Higgins DG.(2005) MADE4: an R package for multivariate analysis of gene expression data. **Bioinformatics** *21(11):* 2789-90. 
 
 
-#Quickstart
+# Quickstart
 
 We will very briefly demonstrate some of the functions in *made4*. To do this 
 we will use a small dataset that is available in *made4*. This dataset **Khan** contains gene expression profiles of four types of small round blue cell tumours of childhood (SRBCT) published by Khan et al. (2001). This is a subset of the published dataset. It contains gene expression levels for 306 genes for 64 patient samples.  Load the necessary R packages and dataset. 
@@ -98,7 +99,7 @@ k.data<-khan$train
 k.class<-khan$train.classes
 ```
 
-##Overview
+## Overview
 
 
 The *made4* function **overview()** provides a quick way to get an overview or feel for data.  **overview()** will draw a boxplot, histogram and dendrogram of a hierarchical analysis.  Hierarchical clustering is produced using average  linkage clustering with a Pearson correlation measure of similarity  [@eisen_cluster_1998]
@@ -130,7 +131,7 @@ A) dendrogram showing results of average linkage clustering, B) boxplot and C) h
 
 
 
-#Prinipcal Component, Correspondence Analysis
+# Prinipcal Component, Correspondence Analysis
 
 The function **ord** simplifies the running of ordination methods such as principal component, correspondence or non-symmetric correspondence analysis. It provides a wrapper which can call each of these methods in *ade4*. To run a correspondence analysis [@fellenberg_correspondence_2001] on this dataset. 
 
@@ -260,7 +261,7 @@ It is available from CRAN or from [juba.github.io](https://juba.github.io/explor
 
 
 
-##Classification and Class Prediction using Between Group Analysis
+## Classification and Class Prediction using Between Group Analysis
 
 Between Group Analysis (BGA) is a supervised PCA method [@doledec_rythmes_1987] for classification/prediction. The basis of BGA is to ordinate the groups rather than the individual samples. 
 
@@ -303,103 +304,111 @@ The RV coefficient \$RV which is `r signif(coin$coinertia$RV,3)` in this instanc
 The greater (scale 0-1) the better.
 
 
-```{ CIAplot}
+```{r CIAplot}
 plot(coin, classvec=NCI60$classes[,2], clab=0, cpoint=3)
 ```
+
 *Figure 6* Coinertia analysis of NCI 60 cell line Spotted and Affymetrix gene expression dataset. The same 60 cell lines were analysed by two different labs on a spotted cDNA array (Ross) and an affymetrix array (Affy).  The Ross dataset contains 1375 genes, and the affy dataset contains 1517. There is little overlap betwen the genes represented on these platforms.  CIA allows visualisation of genes with similar expression patterns across platforms. A) shows 
 a plot of the 60 microarray samples projected onto the one space.  The 60 circles represent dataset 1 (Ross) and the 60 arrows represent dataset 2 (affy).  Each circle and arrow are joined by a line, the length of which is proportional to the divergence between that samples in the two datasets.  The samples are coloured by cell type. B) The gene projections from datasets 1 (Ross), C) the gene projections from 
 dataset 2 (Affy).  Genes and samples projected in the same direction from the origin show genes that are expressed in those samples. See vingette for more help on interpreting these plots.
 
 
-#Functions in made4
+# Functions in made4
 
 ## Data Input
-\begin{table}[h!]
-\begin{tabular}{p{3.5cm} p{12cm}}
-array2ade4 & Converts matrix, data.frame, ExpressionSet, marrayRaw microarray 
-gene expression data input data into a data frame suitable for analysis in 
-ADE4. The  rows and columns are expected to contain the variables (genes) 
-and cases (array samples)  \\
-overview & Draw boxplot, histogram and hierarchical tree of gene 
-expression data. This is useful only for a \textit{brief first glance} at data.\\
-\end{tabular}
-\end{table}
+
+
+| function    |          description                      |
+|:------------ | :------------------------------------------|  
+| isDataFrame | converts matrix, data.frame, ExpressionSet,|
+|             | SummarizedExperiment, marrayRaw, microarray or | 
+|             | RNAseq gene expression or any matrix data input |
+|             | into a data frame suitable for analysis in ADE4. |
+|             | The  rows and columns are expected to contain the |
+|             | variables (genes) and cases (array samples)  |
+| overview    | Draw boxplot, histogram and hierarchical tree of gene | 
+|             | expression data. This is useful only for a *first glance* |
+|             | at data.                                  |
+
+
 
 ## Example datasets provides with made4
-\begin{table}[h!]
-\begin{tabular}{p{3.5cm} p{12cm}}
-khan & Microarray gene expression dataset from Khan et al., 2001 \\
-NCI60 & Microarray gene expression profiles of the NCI 60 cell lines \\
-\end{tabular}
-\end{table}
+
+
+| function    |          description                      |
+|------------ | ------------------------------------------|  
+| khan        | Microarray gene expression dataset from Khan et al., 2001 |
+| NCI60       | Microarray gene expression profiles of  NCI 60 cell lines |
+
 
 
 ## Classification and class prediction using Between Group Analysis
-\begin{table}[h!]
-\begin{tabular}{p{3.5cm} p{12cm}}
-bga & Between group analysis \\
-bga.jackknife & Jackknife between group analysis \\
-randomiser & Randomly reassign training and test samples \\
-bga.suppl & Between group analysis with supplementary data projection \\
-suppl & Projection of supplementary data onto axes from a between group analysis \\
-plot.bga & Plot results of between group analysis \\
-between.graph & Plot 1D graph of results from between group analysis \\
-\end{tabular}
-\end{table}
+
+| function    |          description                      |
+|------------ | ------------------------------------------| 
+| bga         | Between group analysis |
+| bga.jackknife | Jackknife between group analysis |
+| randomiser  | Randomly reassign training and test samples |
+| bga.suppl   | Between group analysis with supplementary data projection |
+| suppl       | Projection of supplementary data onto axes from |
+|             | a between group analysis |
+| plot.bga    | Plot results of between group analysis |
+| between.graph | Plot 1D graph of results from between group analysis |
+
 
 ## Meta analysis of two or more datasets using Coinertia Analysis 
-\begin{table}[h!]
-\begin{tabular}{p{3.5cm} p{12cm}}
-cia & Coinertia analysis: Explore the covariance between two datasets \\
-plot.cia & Plot results of coinertia analysis \\
-\end{tabular}
-\end{table}
+
+| function  |  description |
+|---------- | -------------| 
+| cia | Coinertia analysis: Explore the covariance between two datasets |
+| plot.cia | Plot results of coinertia analysis |
+
 
 ## Graphical Visualisation of results: 1D Visualisation
-\begin{table}[h!]
-\begin{tabular}{p{3.5cm} p{12cm}}
-graph1D & Plot 1D graph of axis from multivariate analysis \\
-between.graph & Plot 1D graph of results from between group analysis \\
-commonMap & Highlight common points between two 1D plots \\
-heatplot & Draws heatmap with dendrograms (of eigenvalues) \\
-\end{tabular}
-\end{table}
+
+| function  |  description |
+|---------- | -------------| 
+| graph1D | Plot 1D graph of axis from multivariate analysis |
+| between.graph | Plot 1D graph of results from between group analysis |
+| commonMap | Highlight common points between two 1D plots |
+| heatplot | Draws heatmap with dendrograms (of eigenvalues) |
+
+
 
 
 
 ## Graphical Visualisation of results: 2D Visualisation
-\begin{table}[h!]
-\begin{tabular}{p{3.5cm} p{12cm}}
-plotgenes & Graph xy plot of variable (gene) projections from PCA or COA. Only label variables at ends of axes \\
-plotarrays & Graph xy plot of case (samples) projections from PCA or COA,and colour by group  \\
-plot.bga & Plot results of between group analysis using plotgenes, s.groups and s.var \\
-plot.cia & Plot results of coinertia analysis showing s.match.col, and plotgenes \\
 
-s.var &	Use plotarrays instead. Graph xy plot of variables (genes or arrays).  Derived from ADE4 graphics module s.label.  \\
-s.groups  & Use plotarrays instead. Graph xy plot of groups of variables (genes or arrays) and colour by group. Derived from ADE4 graphics module s.class \\
-s.match.col &	Use plotarrays instead. Graph xy plot of 2 sets of variables (normally genes) from CIA.  Derived from ADE4 graphics module s.match\\
-\end{tabular}
-\end{table}
+| function  |  description |
+|---------- | -------------| 
+| plotgenes | Graph xy plot of variable (gene) projections from PCA or COA. Only label variables at ends of axes |
+| plotarrays | Graph xy plot of case (samples) projections from PCA or COA,and colour by group  |
+| plot.bga | Plot results of between group analysis using plotgenes, s.groups and s.var |
+|plot.cia | Plot results of coinertia analysis showing s.match.col, and plotgenes |
+| s.var |	Use plotarrays instead. Graph xy plot of variables (genes or arrays).  Derived from ADE4 graphics module s.label.  |
+| s.groups  | Use plotarrays instead. Graph xy plot of groups of variables (genes or arrays) and colour by group. Derived from ADE4 graphics module s.class |
+| s.match.col |	Use plotarrays instead. Graph xy plot of 2 sets of variables (normally genes) from CIA.  Derived from ADE4 graphics module s.match|
+
 
 
 ## Graphical Visualisation of results: 3D Visualisation
-\begin{table}[h!]
-\begin{tabular}{p{3.5cm} p{12cm}}
-do3d & Generate a 3D xyz graph using scatterplot3d \\
-rotate3d & Generate multiple 3D graphs using do3d in which each graph is rotated \\
-html3D & Produce web page with a 3D graph that can be viewed using Chime web browser plug-in, and/or a pdb file that can be viewed using Rasmol \\
-\end{tabular}
-\end{table}
+
+| function  |  description |
+|---------- | -------------|
+| do3d | Generate a 3D xyz graph using scatterplot3d |
+| rotate3d | Generate multiple 3D graphs using do3d in which each graph is rotated |
+| html3D | Produce web page with a 3D graph that can be viewed using Chime web browser plug-in, and/or a pdb file that can be viewed using Rasmol |
+
 
 ## Interpretation of results
-\begin{table}[h!]
-\begin{tabular}{p{3.5cm} p{12cm}}
-topgenes & Returns a list of variables at the ends (positive, negative or both) of an axis \\
-sumstats & Summary statistics on xy co-ordinates, returns the slopes and distance from origin of each co-ordinate \\
-comparelists & Return the intersect, difference and union between 2 vectors \\
-print.comparelists & Prints the results of comparelists \\
-\end{tabular}
-\end{table}
+
+| function  |  description |
+|---------- | -------------|
+| topgenes | Returns a list of variables at the ends (positive, negative or both) of an axis |
+| sumstats | Summary statistics on xy co-ordinates, returns the slopes and distance from origin of each co-ordinate |
+| comparelists | Return the intersect, difference and union between 2 vectors (poorly named. it does not work on a list object) |
+| print.comparelists | Prints the results of comparelists |
+
 
 
 

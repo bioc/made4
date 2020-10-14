@@ -3,7 +3,7 @@ heatplot<-function (dataset, dend = c("both", "row", "column", "none"),
     classvec = NULL, classvecCol=NULL, classvec2 = NULL,distfun=NULL, returnSampleTree=FALSE,method="ave", dualScale=TRUE, zlim=c(-3,3),scaleKey=TRUE, ...)
 {
     #library(gplots)
-    data <- array2ade4(dataset)
+    data <- isDataFrame(dataset)
     data <- as.matrix(data)
 
     if (dualScale) { 

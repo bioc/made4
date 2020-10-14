@@ -41,7 +41,7 @@ ord(dataset, type="coa", classvec=NULL,ord.nf=NULL, trans=FALSE, \dots)
 \details{
 \code{ord} calls either \code{\link[ade4:dudi.pca]{dudi.pca}}, \code{\link[ade4:dudi.coa]{dudi.coa}} or \code{\link[ade4:dudi.nsc]{dudi.nsc}}
 on the input dataset.  The input format of the dataset 
-is verified using \code{\link[made4:array2ade4]{array2ade4}}. 
+is verified using \code{\link[made4:isDataFrame]{isDataFrame}}. 
 
 If the user defines microarray sample groupings, these are colours on plots produced by \code{plot.ord}. 
 

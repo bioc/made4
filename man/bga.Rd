@@ -40,7 +40,7 @@ bga(dataset, classvec, type = "coa", \dots)
 \details{
 \code{bga} performs a between group analysis on the input dataset. This function
 calls \code{\link[ade4:bca]{bca}}.  The input format of the dataset 
-is verified using \code{\link[made4:array2ade4]{array2ade4}}. 
+is verified using \code{\link[made4:isDataFrame]{isDataFrame}}. 
 
 Between group analysis is a supervised method for sample discrimination and class prediction. 
 BGA is carried out by ordinating groups (sets of grouped microarray samples), that is, 
