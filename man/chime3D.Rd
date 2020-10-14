@@ -1,6 +1,5 @@
 \name{chime3D}
 \alias{chime3D}
-
 \title{Produce web graph of 3D graph that can be viewed using Chime web browser plug-in from a pdb file}
 \description{
 \code{chime3D} produces a html web page with a 3D graph of a pdb file that can be rotated and manipulated in a web browser that 
@@ -40,22 +39,15 @@ are available at  \url{http://mirrors.rcsb.org/SMS/STINGm/help/chime_linux.html}
 If you wish to view a 3D graph in Rasmol, you will need to execute a Rasmol script similar to 
 \preformatted{
 
-load pdbfilename.pdb; 
-set axes on; 
-select off; 
-connect;
-set ambient 40; 
-rotate x 180; 
-select *;  
-spacefill 40
-}
-
-}
-
-
-\seealso{ }
-\examples{
-
+  load pdbfilename.pdb; 
+  set axes on; 
+  select off; 
+  connect;
+  set ambient 40; 
+  rotate x 180; 
+  select *;  
+  spacefill 40
+ }
 }
 \keyword{internal}% at least one, from doc/KEYWORDS
 

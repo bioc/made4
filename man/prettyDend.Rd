@@ -24,10 +24,9 @@ Function which performs a hierarchical cluster analysis of data, drawing a dendr
 \details{The hierarchical plot is produced using average linkage cluster analysis with 1- Pearson's correlation metric.
 The default set of colors used to generate the color bars of the plots can be changed (see example below).  By default, if there is only two levels in the factor, the colors will be black and grey. 
 }
-\value{}
-\references{  }
+
 \author{Aedin Culhane}
-\note{}
+
 \seealso{ See also as \code{\link[made4:overview]{overview}}, \code{\link[stats:hclust]{hclust}}}
 \examples{
   data(khan)

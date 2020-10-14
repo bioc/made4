@@ -35,9 +35,9 @@ one axis not two axes.  Given a \$co or \$li file it will return that variables 
 \value{
 Returns a vector or list of vectors.
 }
-\references{ }
+
 \author{AedinCulhane}
-\note{ }
+
 \seealso{See Also as \code{\link[made4:genes]{genes}}}
 \examples{
 

@@ -30,14 +30,10 @@ horizontal plot). This can be increased if variable labels are unreadable. The d
 c(-2,1)}
 \item{\dots}{further arguments passed to or from other methods }
 }
-\details{
-}
-\value{
 
-}
 \references{  }
 \author{ Aedin Culhane }
-\note{}
+
 \seealso{ \code{between.graph}}
 \examples{
 a<-rnorm(25)

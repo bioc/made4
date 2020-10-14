@@ -1,6 +1,5 @@
 \name{forrwcoa}
 \alias{forrwcoa}
-
 \title{Row weighted Correspondence Analysis}
 \description{
 \code{dudi.rwcoa} Row weighted COA, calls \code{forrwcoa} to perform row
@@ -35,8 +34,6 @@ non-symmetric correspondence coinertia analysis, use \code{\link[made4:bet.coine
  \seealso{ See Also as
    \code{\link[ade4:dudi]{dudi}},\code{\link[ade4:dudi.coa]{dudi.coa}},\code{\link[ade4:dudi.pca]{dudi.pca}}
  \code{\link[made4:bet.coinertia]{bet.coinertia}} }
-\examples{
 
-}
 \keyword{internal}
 

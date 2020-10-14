@@ -68,10 +68,7 @@ rgl.close()
 \value{
 Produces plots of the xyz coordinates. 
 }
-\references{ }
 \author{ Aedin Culhane }
-\note{ }
-
 \seealso{See Also \code{\link[scatterplot3d:scatterplot3d]{scatterplot3d}}}
 \examples{
 data(khan)

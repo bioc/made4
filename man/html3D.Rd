@@ -71,7 +71,7 @@ for help with the awk command on which this function is based.
 
 }
 
-\seealso{ }
+
 \examples{
 data(khan)
 if (require(ade4, quiet = TRUE)) {

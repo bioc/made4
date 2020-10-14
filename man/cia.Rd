@@ -103,8 +103,8 @@ An object of the class \code{cia} which contains a list of length 4.
 \references{Culhane AC, et al., 2003 Cross platform comparison and
   visualisation of gene expression data using co-inertia analysis. BMC Bioinformatics. 4:59}
 \author{Aedin Culhane}
-\note{}
-\seealso{See also  \code{\link[ade4:coinertia]{coinertia}}, \code{plot.cia}}
+\seealso{See also  \code{\link[ade4:coinertia]{coinertia}}, \code{plot.cia}. 
+CIA and multiple CIA is also implemented in Bioconductor packages omicade4 and mogsa }
 \examples{
 data(NCI60)
 print("This will take a few minutes, please wait...")

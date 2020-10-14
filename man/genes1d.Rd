@@ -31,7 +31,7 @@ an index of genes at the ends of one axes.
 \value{
 Returns a vector or list of vectors.
 }
-\references{ }
+
 \author{Aedin Culhane}
 
 \seealso{See Also as \code{\link[made4:genes]{genes}}}

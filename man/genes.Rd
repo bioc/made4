@@ -22,13 +22,10 @@ Genes is not normally called by the user but is called by plotgenes()
 
 If you wish to return a table or list of the top genes at
 the end of an axis, use the function \code{\link[made4:topgenes]{topgenes}}.
-
-Thanks to Miss Jess Mar for helping on this function.
 }
-\value{}
+
 \author{Aedin Culhane}
 \seealso{See Also as \code{\link[made4:plotgenes]{plotgenes}} 
 }
-\examples{
-}
+
 \keyword{internal}

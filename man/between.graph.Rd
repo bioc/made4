@@ -37,14 +37,10 @@ COA (\code{\link[ade4:dudi.coa]{dudi.coa}}), or \code{\link[ade4:coinertia]{coin
 use \code{\link[made4:graph1D]{graph1D}}.
 
 }
-\value{
-
-}
 \references{
 Culhane AC, et al., 2002 Between-group analysis of microarray data. Bioinformatics. 18(12):1600-8. 
 }
 \author{Aedin Culhane}
-\note{}
 \seealso{\code{\link[made4:graph1D]{graph1D}}
  }
  \examples{

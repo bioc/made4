@@ -90,7 +90,6 @@ These can be visualised using a scree plot, using \code{\link[ade4:scatter]{scat
   \item{ord}{Results of initial ordination. A list of class "dudi" (see \code{\link[ade4:dudi]{dudi}})}
   \item{fac}{The input classvec, the \code{factor} or \code{vector} which described the classes in the input dataset. Can be NULL.}
 }
-\references{  }
 \author{Aedin Culhane}
 
 \seealso{See Also  \code{\link[ade4:dudi.pca]{dudi.pca}}, \code{\link[ade4:dudi.coa]{dudi.coa}} or \code{\link[ade4:dudi.nsc]{dudi.nsc}}, \code{\link[made4:bga]{bga}},

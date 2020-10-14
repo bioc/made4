@@ -1,7 +1,6 @@
 \name{commonMap}
 \alias{commonMap}
-
-\title{Highlight common points between two 1D plots }
+\title{Plot highlights common points between two 1D plots (biparitite) }
 \description{
 CommonMap draws two 1D plots, and links the common points between the two. 
 }
@@ -26,9 +25,7 @@ This graphs a 1D graph, x and y are the coordinates from two different analyses
 but the rows of each vectors correspond (ie common genes)
 
 }
-\value{
-}
-\references{ }
+
 \author{ Ailis Fagan and Aedin Culhane }
 \note{
 This is useful for examining common points in axes from coinertia analysis, or comparing results 

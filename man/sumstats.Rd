@@ -47,13 +47,9 @@ A matrix (ncol=3) containing
 of each x,y coordinates in a matrix.
 
 }
-\references{ }
+
 \author{ Aedin Culhane }
-\note{}
 
-
-
-\seealso{  }
 \examples{
 data(khan)
 

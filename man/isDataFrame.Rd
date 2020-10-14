@@ -37,11 +37,10 @@ If the input data contains missing values (NA), these must first be removed or i
 \author{Aedin Culhane}
 \seealso{\code{\link[made4:getdata]{getdata}},\code{\link[convert:coerce]{as}} in the Bioconductor package convert.}
 \examples{
-nrows <- 200; ncols <- 6
-counts <- matrix(runif(nrows * ncols, 1, 1e4), nrows)
-rse <- SummarizedExperiment::SummarizedExperiment(assays=SimpleList(counts=counts))
-
-class(isDataFrame(counts))
-
+data(geneData)
+class(geneData)
+dim(geneData)
+dim(isDataFrame(geneData))
+class(isDataFrame(geneData))
 }
 \keyword{manip}% at least one, from doc/KEYWORDS

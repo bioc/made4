@@ -34,7 +34,5 @@ jmol3D output is a html file that can be viewed in any web browser that supports
 \note{ 
 Note jmol must be downloaded on a local machine.  Instructions on installing this are available at  \url{http://jmol.sourceforge.net/}.
 }
-\seealso{ }
-\examples{
-}
+
 \keyword{internal}% at least one, from doc/KEYWORDS
