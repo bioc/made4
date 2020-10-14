@@ -2,10 +2,10 @@
 function(dataset, type="coa", classvec=NULL, ord.nf=NULL, trans=FALSE, ...){
         # This function runs ordination (PCA, or COA) on gene expression data
   
-        # array2ade4(dataset, if coa or nsc needs to be positive)
+        # isDataFrame(dataset, if coa or nsc needs to be positive)
         posdudi=c("coa", "nsc")
         testpos<- ifelse(type %in% posdudi, TRUE, FALSE)           
-        data.tr<-array2ade4(dataset, pos=testpos, trans=trans, ...)
+        data.tr<-isDataFrame(dataset, pos=testpos, trans=trans, ...)
 
 	if (!is.data.frame(data.tr))
 		stop("Problems transposing data")

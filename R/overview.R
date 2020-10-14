@@ -32,7 +32,7 @@ overview<- function(dataset, labels = NULL, title = "", classvec = NULL, hc = TR
     if (hc) {
          if (!inherits(dataset, "matrix")) {
             if (!inherits(dataset, "AffyBatch")) {
-              dataset <- array2ade4(dataset, trans = FALSE)
+              dataset <- isDataFrame(dataset, trans = FALSE)
               }
             if (inherits(dataset, "AffyBatch")) {
                dataset = exprs(dataset)
@@ -48,14 +48,14 @@ overview<- function(dataset, labels = NULL, title = "", classvec = NULL, hc = TR
 
     if (boxplot) {
         if (!inherits(dataset, "AffyBatch")) {
-            dataset <- array2ade4(dataset, trans = FALSE)
+            dataset <- isDataFrame(dataset, trans = FALSE)
         }
         boxplot(dataset, main = paste("boxplot", title, sep = " "), 
             names = labels, par(las = 2), col = cols)
     }
     if (hist) {
         if (!inherits(dataset, "AffyBatch")) {
-            dataset <- array2ade4(dataset, trans = FALSE)
+            dataset <- isDataFrame(dataset, trans = FALSE)
             dataset = as.matrix(dataset)
         }
         hist(dataset, xlab = "", main = paste("Histogram", title, 

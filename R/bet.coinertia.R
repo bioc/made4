@@ -66,8 +66,8 @@ function(df1, df2, fac1, fac2, cia.nf=2, type="nsc", ...){
            
         out=switch(type,
                "nsc"= {
-                       df1<-array2ade4(df1, pos=TRUE, trans=FALSE)
-                       df2<-array2ade4(df2, pos=TRUE, trans=FALSE)
+                       df1<-isDataFrame(df1, pos=TRUE, trans=FALSE)
+                       df2<-isDataFrame(df2, pos=TRUE, trans=FALSE)
                        nsc1<-dudi.nsc(df1, scannf=FALSE, ...)
                        bet1<-bca(t(nsc1), fac1, scannf=FALSE, nf=nf, ...)
                        nsc2<-dudi.nsc(df2, scannf=FALSE, ...)
@@ -77,8 +77,8 @@ function(df1, df2, fac1, fac2, cia.nf=2, type="nsc", ...){
                        class(out)<-c("bet.cia", "nsc")
                      },
                "pca"={
-                     df1<-array2ade4(df1)
-                     df2<-array2ade4(df2)
+                     df1<-isDataFrame(df1)
+                     df2<-isDataFrame(df2)
                      pca1<-dudi.pca(df1, scannf=FALSE)
                      bet1<-bca(pca1, fac1, scannf=FALSE, nf=nf, ...)
                      pca2<-dudi.pca(df2, scannf=FALSE, ...)

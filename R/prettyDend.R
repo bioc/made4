@@ -53,7 +53,7 @@ prettyDend<- function (dataset, labels = NULL, title = "", classvec = NULL,
 ##        legend(fac.col[(nr:1), 1], text.col = fac.col[(nr:1),2], bg = "grey2", x = 0, y = 0, horiz = TRUE)
     }
     if (!inherits(dataset, "AffyBatch")) {
-        dataset <- array2ade4(dataset, trans = FALSE)
+        dataset <- isDataFrame(dataset, trans = FALSE)
         hc = hclust(distEisen(dataset), method = "ave")
         plot(hc, hang = -1, labels = labels, xlab = "", sub = "",
             main = title)

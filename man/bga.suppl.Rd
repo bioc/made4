@@ -41,7 +41,7 @@ described by Culhane et al., 2002.
 
 The test dataset must contain the same number of variables (genes) as the training dataset. 
 
-The input format of both the training dataset and test dataset are verified using \code{array2ade4}. 
+The input format of both the training dataset and test dataset are verified using \code{isDataFrame}. 
 Use \code{\link[made4:plot.bga]{plot.bga}} to plot results from bga.
 }
 \value{
