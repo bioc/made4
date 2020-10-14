@@ -6,7 +6,9 @@ Graph xy plot of variables using s.var, s.groups or s.match.col. Useful for visu
 coordinates (\$li) resulting from ord, bga or cia of microarray data.
 }
 \usage{
-plotarrays(coord, axis1 = 1, axis2 = 2, arraylabels = NULL, classvec=NULL,  graph = c("groups", "simple", "labels", "groups2", "coinertia","coinertia2"), labelsize=1, star=1, ellipse=1, arraycol=NULL, ...)
+plotarrays(coord, axis1 = 1, axis2 = 2, arraylabels = NULL, classvec=NULL,  
+ graph = c("groups", "simple", "labels", "groups2", "coinertia","coinertia2"),
+ labelsize=1, star=1, ellipse=1, arraycol=NULL, ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{

@@ -3,10 +3,12 @@
 
 \title{Plot 1D graph of results from between group analysis }
 \description{
-Plots a 1D graph, of results of between group analysis similar to that in Culhane et al., 2002. 
+Plots a 1D graph, of results of between group analysis similar to that in 
+Culhane et al., 2002. 
 }
 \usage{
-between.graph(x, ax = 1, cols = NULL, hor = TRUE, scaled=TRUE, centnames=NULL, varnames=NULL, ...)
+between.graph(x, ax = 1, cols = NULL, hor = TRUE, scaled=TRUE, 
+centnames=NULL, varnames=NULL, ...)
 }
 
 \arguments{

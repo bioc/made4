@@ -4,7 +4,8 @@
 \description{
 Very simple wrapper function that draws a boxplot, histogram and hierarchical tree of expression 
 data}
-\usage{overview(dataset, labels = NULL, title = "", classvec = NULL, hc = TRUE, boxplot = TRUE, hist = TRUE, returnTree=FALSE)}
+\usage{overview(dataset, labels = NULL, title = "", classvec = NULL, 
+  hc = TRUE, boxplot = TRUE, hist = TRUE, returnTree=FALSE)}
 \arguments{
    \item{dataset}{A \code{\link{matrix}}, \code{\link{data.frame}}, 
     \code{\link[Biobase:ExpressionSet-class]{ExpressionSet}} or 
@@ -20,13 +21,11 @@ data}
   \item{boxplot}{Logical. Draw boxplot. Default is \code{TRUE}.}
   \item{hist}{Logical. Draw histogram. Default is \code{TRUE}.}
   \item{returnTree}{Logical. Return the hieracrhical cluster analysis results. Default is \code{FALSE}.}
-   \item{\dots}{further arguments passed to or from other methods.}
   }
 \details{The hierarchical plot is produced using average linkage cluster analysis with Pearson's correlation metric as described by Eisen et al.,1999.}
-\value{}
-\references{  }
+
 \author{Aedin Culhane}
-\note{}
+
 \seealso{See also as \code{\link[graphics:boxplot]{boxplot}}, \code{\link[stats:hclust]{hclust}}, 
 \code{\link[graphics:hist]{hist}}}
 \examples{
@@ -35,8 +34,13 @@ data}
   logkhan<-log2(khan$train)
   print(class(logkhan))
   overview(logkhan, title="Subset of Khan Train")
-  overview(logkhan, classvec=khan$train.classes, labels=khan$train.classes,title="Subset of Khan Train")
-  overview(logkhan, classvec=khan$train.classes, labels=khan$train.classes,title="Subset of Khan Train", boxplot=FALSE, his=FALSE)
+  
+  overview(logkhan, classvec=khan$train.classes, 
+  labels=khan$train.classes,title="Subset of Khan Train")
+  
+  overview(logkhan, classvec=khan$train.classes, 
+  labels=khan$train.classes,title="Subset of Khan Train", boxplot=FALSE, 
+  his=FALSE)
 }
 \keyword{hplot}% at least one, from doc/KEYWORDS
 \keyword{manip}% __ONLY ONE__ keyword per line

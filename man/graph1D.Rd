@@ -31,7 +31,7 @@ c(-2,1)}
 \item{\dots}{further arguments passed to or from other methods }
 }
 
-\references{  }
+
 \author{ Aedin Culhane }
 
 \seealso{ \code{between.graph}}

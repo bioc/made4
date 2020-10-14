@@ -6,8 +6,8 @@ Graph xy plot of variables but only label variables at ends of X and Y axes. Use
 coordinates (\$co) resulting from PCA or COA of microarray data.
 }
 \usage{
-plotgenes(coord, nlab = 10, axis1 = 1, axis2 = 2, genelabels = row.names(coord), boxes = TRUE, 
-colpoints = "black", \dots)
+plotgenes(coord, nlab = 10, axis1 = 1, axis2 = 2, genelabels = 
+row.names(coord), boxes = TRUE, colpoints = "black", \dots)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{

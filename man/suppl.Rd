@@ -8,7 +8,8 @@ axes from a between group analysis, \code{\link[made4:bga]{bga}}.
 }
 \usage{
 suppl(dudi.bga, supdata, supvec = NULL, assign=TRUE, \dots)
-\method{plot}{suppl}(x, dudi.bga, axis1=1, axis2=2, supvec=sup$true.class, supvec.pred= sup$predicted, \dots)
+\method{plot}{suppl}(x, dudi.bga, axis1=1, axis2=2, supvec=x$true.class, 
+supvec.pred= x$predicted, \dots)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{

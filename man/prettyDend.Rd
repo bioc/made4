@@ -4,7 +4,8 @@
 \description{
 Function which performs a hierarchical cluster analysis of data, drawing a dendrogram, with colorbars for different sample covariate beneath the dendrogram}
 
-\usage{prettyDend(dataset, labels = NULL, title = "", classvec = NULL,covars=1,returnTree=FALSE, getPalette=getcol,\dots)
+\usage{prettyDend(dataset, labels = NULL, title = "", classvec = NULL,
+ covars=1, returnTree=FALSE, getPalette=getcol,\dots)
 }
 \arguments{
   \item{dataset}{ a \code{\link{matrix}}, \code{\link{data.frame}}, 
@@ -43,16 +44,19 @@ The default set of colors used to generate the color bars of the plots can be ch
 # To change the palette of colors
 # Use topo.colors(), see colors() for more help on inbuilt palettes
 
-  prettyDend(logkhan, classvec=khanAnnot, covars = c(1,2), labels=khan$train.classes, getPalette=topo.colors)
+  prettyDend(logkhan, classvec=khanAnnot, covars = c(1,2), 
+  labels=khan$train.classes, getPalette=topo.colors)
 
 # To use RColorBrewer Palettes
   library(RColorBrewer)
 
   # Use RColorBrewer Dark2 which contains 8 colors 
-  prettyDend(logkhan, classvec=khanAnnot, covars = c(1,2), labels=khan$train.classes, getPalette=function(x) brewer.pal(8,"Dark2")[1:x])
+  prettyDend(logkhan, classvec=khanAnnot, covars = c(1,2), 
+  labels=khan$train.classes, getPalette=function(x) brewer.pal(8,"Dark2")[1:x])
 
   # Use RColorBrewer Set1 which contains 9 colors 
-  prettyDend(logkhan, classvec=khanAnnot, covars = c(1,2), labels=khan$train.classes, getPalette=function(x) brewer.pal(9,"Set1")[1:x])
+  prettyDend(logkhan, classvec=khanAnnot, covars = c(1,2), 
+  labels=khan$train.classes, getPalette=function(x) brewer.pal(9,"Set1")[1:x])
 
 }
 \keyword{hplot}% at least one, from doc/KEYWORDS

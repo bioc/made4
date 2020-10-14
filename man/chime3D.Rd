@@ -6,7 +6,8 @@
 supports the chime plug-in. 
 }
 \usage{
-chime3D(pdbfilename, classvec = NULL, title = NULL, filename = "output.html", point.size=40,cols=NULL,  ...)
+chime3D(pdbfilename, classvec = NULL, title = NULL, filename = "output.html",
+point.size=40,cols=NULL,  ...)
 }
 
 \arguments{

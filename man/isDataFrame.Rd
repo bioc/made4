@@ -24,8 +24,8 @@ isDataFrame(dataset, pos = FALSE, trans = FALSE)
 \details{
 \code{\link[made4:bga]{bga}} and other functions in made4 call this function and it is generally \strong{not} necessary to call \code{isDataFrame} this directly.
 
-isDataFrame calls \code{\link[made4:getdata]{getdata}}, and will accept a \code{\link{matrix}}, \code{\link{data.frame}}, 
-\code{\link[Biobase:ExpressionSet-class]{ExpressionSet}} or \code{\link[marray:marrayRaw-class]{marrayRaw-class}} format.
+isDataFrame calls \code{\link[made4:asDataFrame]{asDataFrame}}, and will accept a \code{\link{matrix}}, \code{\link{data.frame}}, 
+\code{\link[Biobase:ExpressionSet-class]{ExpressionSet}} or \code{\link[marray:marrayRaw-class]{marrayRaw-class} or SummarizedExperiment} format.
 It  will also transpose data or add a integer to generate a positive data matrix. 
 
 If the input data contains missing values (NA), these must first be removed or imputed (see the R libraries impute() or pamr()).  
@@ -33,9 +33,9 @@ If the input data contains missing values (NA), these must first be removed or i
 \value{
  Returns a data.frame suitable for analysis by ade4 or made4 functions.
 }
-\references{ }
+
 \author{Aedin Culhane}
-\seealso{\code{\link[made4:getdata]{getdata}},\code{\link[convert:coerce]{as}} in the Bioconductor package convert.}
+\seealso{\code{\link[convert:coerce]{as}} in  Bioconductor }
 \examples{
 data(geneData)
 class(geneData)

@@ -6,7 +6,8 @@
 on gene expression data} 
 \usage{
 ord(dataset, type="coa", classvec=NULL,ord.nf=NULL, trans=FALSE, \dots)
-\method{plot}{ord}(x, axis1=1, axis2=2, arraycol=NULL, genecol="gray25", nlab=10, genelabels= NULL, arraylabels=NULL,classvec=NULL, \dots)
+\method{plot}{ord}(x, axis1=1, axis2=2, arraycol=NULL, genecol="gray25", 
+ nlab=10, genelabels= NULL, arraylabels=NULL,classvec=NULL, \dots)
 }
 \arguments{
   \item{dataset}{Training dataset. A \code{\link{matrix}}, \code{\link{data.frame}}, 

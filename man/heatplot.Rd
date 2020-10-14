@@ -2,11 +2,17 @@
 \alias{heatplot}
 \title{Draws heatmap with dendrograms.}
 \description{
-  \code{heatplot} calls \code{heatmap.2} using a red-green colour scheme by default.  It also draws dendrograms of the cases and variables
-  using correlation similarity metric and average linkage clustering as described by Eisen. \code{heatplot} is useful for a
+  \code{heatplot} calls \code{heatmap.2} using a red-green colour scheme by
+  default.  It also draws dendrograms of the cases and variables
+  using correlation similarity metric and average linkage clustering as 
+  described by Eisen. \code{heatplot} is useful for a
   quick overview or exploratory analysis of data }
 
-\usage{heatplot(dataset, dend = c("both", "row", "column", "none"),  cols.default = TRUE, lowcol = "green", highcol = "red", scale="none",  classvec=NULL, classvecCol=NULL, classvec2=NULL, distfun=NULL, returnSampleTree=FALSE,method="ave", dualScale=TRUE, zlim=c(-3,3),scaleKey=TRUE, ...)
+\usage{heatplot(dataset, dend = c("both", "row", "column", "none"),  
+cols.default = TRUE, lowcol = "green", highcol = "red", scale="none",  
+classvec=NULL, classvecCol=NULL, classvec2=NULL, distfun=NULL, 
+returnSampleTree=FALSE,method="ave", dualScale=TRUE, zlim=c(-3,3),
+scaleKey=TRUE, ...)
 }
 \arguments{
 \item{dataset}{
@@ -61,14 +67,17 @@ heatplot(khan$train[1:26,], labCol = c(64:1), labRow=LETTERS[1:26])
 
 ## Add a color bar
 heatplot(khan$train[1:26,], classvec=khan$train.classes)
-heatplot(khan$train[1:26,], classvec=khan$train.classes, classvecCol=c("magenta", "yellow", "cyan", "orange"))
+heatplot(khan$train[1:26,], classvec=khan$train.classes, 
+classvecCol=c("magenta", "yellow", "cyan", "orange"))
 
 ## Change the scaling to the older made4 version (pre Bioconductor 2.5)
-heatplot(khan$train[1:26,], classvec=khan$train.classes, dualScale=FALSE, scale="row")
+heatplot(khan$train[1:26,], classvec=khan$train.classes, 
+dualScale=FALSE, scale="row")
 
 
 ## Getting the members of a cluster and manuipulating the tree
-sTree<-heatplot(khan$train, classvec=khan$train.classes, returnSampleTree=TRUE)
+sTree<-heatplot(khan$train, classvec=khan$train.classes, 
+returnSampleTree=TRUE)
 class(sTree)
 plot(sTree)
 
@@ -83,19 +92,27 @@ str(cut(sTree,1.0)$lower[[1]])
 
 ## Visualizing results from an ordination using heatplot
 if (require(ade4, quiet = TRUE)) {
-res<-ord(khan$train, ord.nf=5)  # save 5 components from correspondence analysis
+ # save 5 components from correspondence analysis
+res<-ord(khan$train, ord.nf=5) 
 khan.coa = res$ord
 }
 
-# Provides a view of the components of the Correspondence analysis (gene projection) 
-heatplot(khan.coa$li,  dend="row", dualScale=FALSE)    # first 5 components, do not cluster columns, only rows.
+# Provides a view of the components of the Correspondence analysis 
+# (gene projection) 
+# first 5 components, do not cluster columns, only rows.
+heatplot(khan.coa$li,  dend="row", dualScale=FALSE)    
 
-# Provides a view of the components of the Correspondence analysis (sample projection) 
-# The difference between tissues and cell line samples are defined in the first axis.
-heatplot(khan.coa$co, margins=c(4,20), dend="row")  # Change the margin size. The default is c(5,5)
+
+# Provides a view of the components of the Correspondence analysis 
+# (sample projection) 
+# The difference between tissues and cell line samples 
+# are defined in the first axis.
+# Change the margin size. The default is c(5,5)
+heatplot(khan.coa$co, margins=c(4,20), dend="row")  
 
 # Add a colorbar, change the heatmap color scheme and no scaling of data
-heatplot(khan.coa$co,classvec2=khan$train.classes, cols.default=FALSE, lowcol="blue", dend="row", dualScale=FALSE)
+heatplot(khan.coa$co,classvec2=khan$train.classes, cols.default=FALSE, 
+lowcol="blue", dend="row", dualScale=FALSE)
 apply(khan.coa$co,2, range)
 
 
